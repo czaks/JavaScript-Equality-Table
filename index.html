@@ -9,7 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="js/comparison_table.js"></script>
-	
+
 <!--    Originally from here:
 	    http://blog.codekills.net/archives/89-Equality-in-JavaScript.html
 
@@ -23,6 +23,16 @@
 
 	<div id="tabs">
 		<ul>
+            <li>
+                <a href="#less-than">
+                    <
+                </a>
+            </li>
+            <li>
+                <a href="#less-than-equals">
+                    &lt;=
+                </a>
+            </li>
 			<li>
 				<a href="#two-equals">
 					==
@@ -33,7 +43,16 @@
 					===
 				</a>
 			</li>
+            <li>
+                <a href="#greater-than">
+                    >
+                </a>
 			<li>
+            <li>
+                <a href="#greater-than-equals">
+                    >=
+                </a>
+            <li>
 				<a href="#if-statement">
 					If()
 				</a>
@@ -55,6 +74,30 @@
 			<h2>A standard IF statement. If(<i>value</i>) {/*- green -*/} else { /*- red -*/ }</h2>
 			<p>Note: This row does not match up with any of the rows in the other table.</p>
 		</div>
+        <div id="less-than">
+            <h2>&lt; <smaller>(negated: >=)</smaller></h2>
+            <p class="description">
+                When using less than signs for JavaScript testing, some funky conversions take place.
+            </p>
+        </div>
+        <div id="less-than-equals">
+            <h2>&lt;= <smaller>(negated: >)</smaller></h2>
+            <p class="description">
+                When using less than or equal to signs for JavaScript testing, some funky conversions take place.
+            </p>
+        </div>
+        <div id="greater-than">
+            <h2>&gt; <smaller>(negated: &lt;=)</smaller></h2>
+            <p class="description">
+                When using greater than signs for JavaScript testing, some funky conversions take place.
+            </p>
+        </div>
+        <div id="greater-than-equals">
+            <h2>&gt;= <smaller>(negated: &lt;)</smaller></h2>
+            <p class="description">
+                When using greater than or equal to signs for JavaScript testing, some funky conversions take place.
+            </p>
+        </div>
 		<div style="padding: 2px 20px">
 			<h4>Moral of the story:</h4>
 			<p>Use three equals unless you fully understand the conversions that take place for two-equals.</p>
@@ -70,6 +113,10 @@
 	buildComparisonTable(values, "==").appendTo("#two-equals")
 	buildComparisonTable(values, "===").appendTo("#three-equals")
 	buildComparisonTableForIf(values).appendTo("#if-statement")
+    buildComparisonTable(values, "<").appendTo("#less-than")
+    buildComparisonTable(values, ">").appendTo("#greater-than")
+    buildComparisonTable(values, "<=").appendTo("#less-than-equals")
+    buildComparisonTable(values, ">=").appendTo("#greater-than-equals")
 
 	$('#tabs').tabs();
 </script>
