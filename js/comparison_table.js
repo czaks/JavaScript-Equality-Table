@@ -53,7 +53,7 @@
     }
 
     ForComparison.prototype.testResults = function(fc2, comparator) {
-      var evalStr =  "";
+      var evalStr = "";
       if (comparator == null) {
         comparator = "===";
       }
