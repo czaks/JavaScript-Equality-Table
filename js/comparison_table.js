@@ -59,9 +59,11 @@
       }
       var t = this;
       comparator.split(/&&/).forEach(function(c) {
+        var nawias = false;
         if (c.match(/^!!/)) {
           c = c.replace(/^!!/, '');
-          evalStr += "!!";
+          evalStr += "!!(";
+          nawias = true;
         }
 
         if (t.asString === "{}") {
@@ -69,6 +71,7 @@
         } else {
           evalStr += "" + t.asString + c + fc2.asString;
         }
+        if (nawias)  evalStr += ")";
         evalStr += "&&";
       });
       evalStr = evalStr.replace(/&&$/, '');
