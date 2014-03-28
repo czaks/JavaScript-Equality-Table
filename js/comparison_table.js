@@ -55,7 +55,7 @@
       if (comparator == null) {
         comparator = "===";
       }
-      var parts = comparator.split(/&&/);
+      comparator.split(/&&/).forEach(function(c) {
         if (c.match(/^!!/)) {
           c = c.replace(/^!!/, '');
           evalStr += "!!";
