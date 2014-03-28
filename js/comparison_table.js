@@ -51,15 +51,24 @@
     }
 
     ForComparison.prototype.testResults = function(fc2, comparator) {
-      var evalStr;
+      var evalStr =  "";
       if (comparator == null) {
         comparator = "===";
       }
-      if (this.asString === "{}") {
-        evalStr = "[" + this.asString + comparator + fc2.asString + "][0]";
-      } else {
-        evalStr = "" + this.asString + comparator + fc2.asString;
-      }
+      var parts = comparator.split(/&&/);
+        if (c.match(/^!!/)) {
+          c = c.replace(/^!!/, '');
+          evalStr += "!!";
+        }
+
+        if (this.asString === "{}") {
+          evalStr += "[" + this.asString + c + fc2.asString + "][0]";
+        } else {
+          evalStr += "" + this.asString + c + fc2.asString;
+        }
+        evalStr += "&&";
+      });
+      evalStr = evalStr.replace(/&&$/, '');
       return [evalStr, eval(evalStr)];
     };
 
