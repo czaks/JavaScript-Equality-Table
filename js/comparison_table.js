@@ -37,6 +37,9 @@
             this.asString = JSON.stringify(this.item);
           } else if (isNaN(this.item)) {
             this.asString = "NaN";
+          } else if (this.item instanceof Function) {
+            this.asString = ""+this.item;
+          }
           } else {
             this.asString = JSON.stringify(this.item);
           }
@@ -123,8 +126,9 @@
     testEquality = function(tf, item, comparator) {
       var fc1;
       fc1 = new ForComparison(item);
-      if (fc1.testResults(fc1, comparator)[1] !== tf) {
-        throw new Error("Condition should be " + tf);
+      var results = fc1.testResults(fc1, comparator);
+      if (results[1] !== tf) {
+        throw new Error("Condition ("+results[0]+") should be " + tf);
       }
     };
     testEquality(true==true, "`true`", "==");
