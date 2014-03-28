@@ -47,12 +47,24 @@
                 <a href="#greater-than">
                     >
                 </a>
-			<li>
+			</li>
             <li>
                 <a href="#greater-than-equals">
                     >=
                 </a>
-            <li>
+            </li>
+                        <li>
+                <a href="#gte-and-lte">
+                    >=&&<=
+                </a>
+                
+            </li>
+                                    <li>
+                <a href="#booled-xor">
+                    !!^
+                </a>
+                
+            </li>
 				<a href="#if-statement">
 					If()
 				</a>
@@ -98,6 +110,18 @@
                 When using greater than or equal to signs for JavaScript testing, some funky conversions take place.
             </p>
         </div>
+                <div id="gte-and-gte">
+            <h2>&lt;= &amp;&amp; &gt;=</h2>
+            <p class="description">
+                When using greater than or equal to signs for JavaScript testing, some funky conversions take place.
+            </p>
+        </div>
+                       <div id="booled-xor">
+            <h2>!! ^</h2>
+            <p class="description">
+                When using greater than or equal to signs for JavaScript testing, some funky conversions take place.
+            </p>
+        </div>
 		<div style="padding: 2px 20px">
 			<h4>Moral of the story:</h4>
 			<p>Use three equals unless you fully understand the conversions that take place for two-equals.</p>
@@ -108,7 +132,8 @@
 	Strings in backticks (`) are evaluated.
 	*/
 	var values = [true, false, 1, 0, -1, "`'true'`", "`'false'`", "`'1'`", "`'0'`", "`'-1'`",
-		"", "`null`", "`undefined`", "`[]`", "`{}`", [[]], [0], [1], "`parseFloat('nan')`"];
+		"", "`null`", "`undefined`", "`[]`", "`{}`", [[]], [0], [1], "`parseFloat('nan')`",
+		"`function(){}`", "`function(a){}`"];
 
 	buildComparisonTable(values, "==").appendTo("#two-equals")
 	buildComparisonTable(values, "===").appendTo("#three-equals")
@@ -117,6 +142,8 @@
     buildComparisonTable(values, ">").appendTo("#greater-than")
     buildComparisonTable(values, "<=").appendTo("#less-than-equals")
     buildComparisonTable(values, ">=").appendTo("#greater-than-equals")
+        buildComparisonTable(values, "<=&&>=").appendTo("#gte-ad-lte")
+                buildComparisonTable(values, "!!^").appendTo("#booled-xor")
 
 	$('#tabs').tabs();
 </script>
