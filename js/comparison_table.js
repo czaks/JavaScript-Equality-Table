@@ -39,7 +39,6 @@
             this.asString = "NaN";
           } else if (this.item instanceof Function) {
             this.asString = ""+this.item;
-          }
           } else {
             this.asString = JSON.stringify(this.item);
           }
