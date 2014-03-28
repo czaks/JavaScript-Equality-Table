@@ -57,16 +57,17 @@
       if (comparator == null) {
         comparator = "===";
       }
+      var t = this;
       comparator.split(/&&/).forEach(function(c) {
         if (c.match(/^!!/)) {
           c = c.replace(/^!!/, '');
           evalStr += "!!";
         }
 
-        if (this.asString === "{}") {
-          evalStr += "[" + this.asString + c + fc2.asString + "][0]";
+        if (t.asString === "{}") {
+          evalStr += "[" + t.asString + c + fc2.asString + "][0]";
         } else {
-          evalStr += "" + this.asString + c + fc2.asString;
+          evalStr += "" + t.asString + c + fc2.asString;
         }
         evalStr += "&&";
       });
