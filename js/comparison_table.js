@@ -35,10 +35,10 @@
             this.asString = "undefined";
           } else if (isObject(this.item)) {
             this.asString = JSON.stringify(this.item);
-          } else if (isNaN(this.item)) {
-            this.asString = "NaN";
           } else if (this.item instanceof Function) {
             this.asString = ""+this.item;
+          } else if (isNaN(this.item)) {
+            this.asString = "NaN";
           } else {
             this.asString = JSON.stringify(this.item);
           }
